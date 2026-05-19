@@ -1,81 +1,86 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { fadeUp, stagger } from "../../animations/variants";
+
+const container = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
+  },
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 28 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+  },
+};
 
 function Hero() {
   return (
-    <section className="px-6 pb-20 pt-16 md:px-12 md:pt-24">
-      <motion.div
-        variants={stagger}
-        initial="hidden"
-        animate="show"
-        className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]"
-      >
-        <motion.div variants={fadeUp} className="space-y-6">
-          <p className="text-xs uppercase tracking-[0.35em] text-garnet-muted">
-            Crafting modern luxury for ambitious brands
-          </p>
-          <h1 className="font-display text-4xl font-semibold leading-tight text-garnet-ink md:text-6xl">
-            GARNET shapes premium digital spaces that feel as curated as a
-            gallery.
-          </h1>
-          <p className="max-w-xl text-base leading-relaxed text-garnet-muted md:text-lg">
-            We translate visionary products into immersive front ends, balancing
-            editorial typography, confident whitespace, and motion that feels
-            intentional.
-          </p>
-          <div className="flex flex-wrap items-center gap-4">
-            <Link
-              to="/contact"
-              className="rounded-full bg-garnet-ink px-6 py-3 text-xs uppercase tracking-[0.35em] text-garnet-cream transition hover:translate-y-0.5"
-            >
-              Start a project
-            </Link>
-            <Link
-              to="/portfolio"
-              className="rounded-full border border-garnet-line px-6 py-3 text-xs uppercase tracking-[0.35em] text-garnet-ink transition hover:border-garnet-ink"
-            >
-              View portfolio
-            </Link>
-          </div>
+    <section className="relative min-h-screen overflow-hidden bg-[#0e0b11] text-white">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -left-40 top-[-10%] h-[520px] w-[520px] rounded-full bg-[rgba(163,20,58,0.35)] blur-[140px]" />
+        <div className="absolute right-[-20%] top-[15%] h-[560px] w-[560px] rounded-full bg-[rgba(97,32,63,0.35)] blur-[160px]" />
+        <motion.div
+          className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.08),transparent_50%),radial-gradient(circle_at_80%_10%,rgba(163,20,58,0.18),transparent_45%)]"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2 }}
+        />
+      </div>
+
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl items-center px-6 pb-20 pt-28 md:px-12">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-120px" }}
+          className="max-w-3xl space-y-8"
+        >
+          <motion.p
+            variants={fadeUp}
+            className="text-xs uppercase tracking-[0.45em] text-white/60"
+          >
+            GARNET
+          </motion.p>
+
+          <motion.h1
+            variants={fadeUp}
+            className="font-display text-4xl font-semibold leading-tight tracking-tight md:text-6xl lg:text-7xl"
+          >
+            Digital Innovation Crafted With Precision.
+          </motion.h1>
+
+          <motion.p
+            variants={fadeUp}
+            className="max-w-2xl text-base leading-relaxed text-white/70 md:text-lg"
+          >
+            Garnet builds modern software experiences, intelligent digital
+            products, and transformative technology solutions.
+          </motion.p>
+
+          <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
+            <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }}>
+              <Link
+                to="/portfolio"
+                className="inline-flex rounded-full bg-white px-7 py-3 text-xs uppercase tracking-[0.35em] text-[#0e0b11] transition"
+              >
+                Explore Work
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }}>
+              <Link
+                to="/contact"
+                className="inline-flex rounded-full border border-white/30 px-7 py-3 text-xs uppercase tracking-[0.35em] text-white transition hover:border-white"
+              >
+                Start Project
+              </Link>
+            </motion.div>
+          </motion.div>
         </motion.div>
-        <motion.div variants={fadeUp} className="relative">
-          <div className="aspect-[3/4] rounded-[32px] border border-garnet-line bg-white/70 p-8 shadow-garnet backdrop-blur">
-            <div className="flex h-full flex-col justify-between">
-              <div>
-                <p className="text-xs uppercase tracking-[0.35em] text-garnet-muted">
-                  Signature digital launch
-                </p>
-                <h3 className="mt-4 font-display text-2xl text-garnet-ink">
-                  Atelier Lumiere
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-garnet-muted">
-                  A tactile visual system for a luxury fragrance studio.
-                </p>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="rounded-2xl border border-garnet-line bg-garnet-warm/70 p-4">
-                  <p className="text-xs uppercase tracking-[0.3em] text-garnet-muted">
-                    Timeline
-                  </p>
-                  <p className="mt-3 font-display text-xl text-garnet-ink">
-                    8 weeks
-                  </p>
-                </div>
-                <div className="rounded-2xl border border-garnet-line bg-garnet-warm/70 p-4">
-                  <p className="text-xs uppercase tracking-[0.3em] text-garnet-muted">
-                    Launch
-                  </p>
-                  <p className="mt-3 font-display text-xl text-garnet-ink">
-                    Spring 2026
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="absolute -bottom-6 -left-6 hidden h-32 w-32 rounded-full border border-garnet-line bg-white/70 md:block" />
-        </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 }
