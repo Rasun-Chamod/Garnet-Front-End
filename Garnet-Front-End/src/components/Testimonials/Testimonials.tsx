@@ -39,7 +39,7 @@ const fadeUp = {
 
 function Testimonials() {
   return (
-    <section className="border-t border-garnet-line bg-[#0e0b11] px-6 py-20 text-white md:px-12">
+    <section className="border-t border-garnet-line bg-[#0e0b11] px-6 py-24 text-white md:px-12 md:py-28">
       <motion.div
         variants={container}
         initial="hidden"
@@ -60,7 +60,7 @@ function Testimonials() {
           </p>
         </motion.div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-3 lg:gap-8">
           {testimonials.map((item) => (
             <motion.div
               key={item.name}

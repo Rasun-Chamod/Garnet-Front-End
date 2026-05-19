@@ -41,7 +41,7 @@ function Navbar() {
             : 'bg-transparent'
         }`}
       >
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 md:px-12">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-12 md:py-5">
           <Link
             to="/"
             className="font-display text-xl font-semibold tracking-[0.35em]"
@@ -49,7 +49,10 @@ function Navbar() {
             GARNET
           </Link>
 
-          <nav className="hidden items-center gap-8 text-xs uppercase tracking-[0.35em] text-garnet-muted md:flex">
+          <nav
+            aria-label="Primary"
+            className="hidden items-center gap-8 text-xs uppercase tracking-[0.35em] text-garnet-muted md:flex"
+          >
             {links.map((link) => (
               <NavLink
                 key={link.to}
@@ -79,6 +82,8 @@ function Navbar() {
           <button
             type="button"
             aria-label="Open menu"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
             onClick={() => setMenuOpen(true)}
             className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-garnet-line text-garnet-ink transition hover:border-garnet-ink md:hidden"
           >
@@ -97,8 +102,12 @@ function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 bg-garnet-ink/80 backdrop-blur"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile menu"
           >
             <motion.div
+              id="mobile-menu"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
@@ -119,7 +128,10 @@ function Navbar() {
                 </button>
               </div>
 
-              <nav className="mt-16 flex flex-col gap-8 text-sm uppercase tracking-[0.35em] text-garnet-muted">
+              <nav
+                aria-label="Mobile"
+                className="mt-16 flex flex-col gap-8 text-sm uppercase tracking-[0.35em] text-garnet-muted"
+              >
                 {links.map((link) => (
                   <NavLink
                     key={link.to}

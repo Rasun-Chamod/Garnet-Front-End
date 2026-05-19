@@ -18,13 +18,13 @@ const fadeUp = {
 
 function About() {
   return (
-    <section className="border-t border-garnet-line px-6 py-20 md:px-12">
+    <section className="border-t border-garnet-line px-6 py-24 md:px-12 md:py-28">
       <motion.div
         variants={container}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-120px" }}
-        className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1fr_1.05fr]"
+        className="mx-auto grid max-w-6xl gap-12 lg:gap-16 lg:grid-cols-[1fr_1.05fr]"
       >
         <motion.div variants={fadeUp} className="group relative">
           <div className="aspect-[4/5] w-full overflow-hidden rounded-[32px] border border-garnet-line bg-garnet-warm/70 shadow-garnet transition-transform duration-500 group-hover:-translate-y-2">
@@ -40,7 +40,7 @@ function About() {
             <p className="text-xs uppercase tracking-[0.35em] text-garnet-muted">
               Who We Are
             </p>
-            <h2 className="mt-4 font-display text-3xl font-semibold text-garnet-ink md:text-4xl">
+            <h2 className="mt-4 font-display text-3xl font-semibold leading-[1.15] text-garnet-ink md:text-4xl">
               Crafted experiences for ambitious brands.
             </h2>
             <p className="mt-4 text-base leading-relaxed text-garnet-muted">
@@ -69,7 +69,7 @@ function About() {
             ].map((item) => (
               <div
                 key={item.label}
-                className="group rounded-[20px] border border-garnet-line bg-white/70 p-6 transition hover:-translate-y-1 hover:shadow-garnet"
+                className="group rounded-[20px] border border-garnet-line bg-white/70 p-6 transition hover:-translate-y-1 hover:shadow-garnet md:p-7"
               >
                 <p className="text-xs uppercase tracking-[0.35em] text-garnet-muted">
                   {item.label}

@@ -51,9 +51,13 @@ function Footer() {
               <input
                 type="email"
                 placeholder="Email address"
+                aria-label="Email address"
                 className="flex-1 rounded-full border border-white/15 bg-transparent px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-white/40"
               />
-              <button className="rounded-full border border-white/40 px-6 py-3 text-xs uppercase tracking-[0.35em] text-white transition hover:border-white">
+              <button
+                type="button"
+                className="rounded-full border border-white/40 px-6 py-3 text-xs uppercase tracking-[0.35em] text-white transition hover:border-white"
+              >
                 Subscribe
               </button>
             </div>

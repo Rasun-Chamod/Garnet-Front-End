@@ -31,13 +31,13 @@ function Hero() {
         />
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl items-center px-6 pb-20 pt-28 md:px-12">
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl items-center px-6 pb-24 pt-32 md:px-12 md:pt-36">
         <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-120px" }}
-          className="max-w-3xl space-y-8"
+          className="max-w-4xl space-y-8 md:space-y-10"
         >
           <motion.p
             variants={fadeUp}
@@ -48,14 +48,14 @@ function Hero() {
 
           <motion.h1
             variants={fadeUp}
-            className="font-display text-4xl font-semibold leading-tight tracking-tight md:text-6xl lg:text-7xl"
+            className="font-display text-4xl font-semibold leading-[1.05] tracking-[-0.02em] md:text-6xl lg:text-7xl"
           >
             Digital Innovation Crafted With Precision.
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
-            className="max-w-2xl text-base leading-relaxed text-white/70 md:text-lg"
+            className="max-w-2xl text-base leading-relaxed text-white/70 md:text-lg lg:text-xl"
           >
             Garnet builds modern software experiences, intelligent digital
             products, and transformative technology solutions.
@@ -65,7 +65,7 @@ function Hero() {
             <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }}>
               <Link
                 to="/portfolio"
-                className="inline-flex rounded-full bg-white px-7 py-3 text-xs uppercase tracking-[0.35em] text-[#0e0b11] transition"
+                className="inline-flex rounded-full bg-white px-7 py-3 text-xs uppercase tracking-[0.35em] text-[#0e0b11] transition hover:-translate-y-0.5"
               >
                 Explore Work
               </Link>
@@ -73,7 +73,7 @@ function Hero() {
             <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }}>
               <Link
                 to="/contact"
-                className="inline-flex rounded-full border border-white/30 px-7 py-3 text-xs uppercase tracking-[0.35em] text-white transition hover:border-white"
+                className="inline-flex rounded-full border border-white/30 px-7 py-3 text-xs uppercase tracking-[0.35em] text-white transition hover:-translate-y-0.5 hover:border-white"
               >
                 Start Project
               </Link>

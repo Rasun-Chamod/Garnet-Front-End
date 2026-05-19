@@ -19,9 +19,14 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: 'Manrope', system-ui, sans-serif;
+  line-height: 1.6;
   color: var(--garnet-ink);
   background-color: var(--garnet-cream);
   background-image:
@@ -29,6 +34,16 @@ body {
     radial-gradient(circle at 80% 20%, rgba(20, 17, 20, 0.06), transparent 50%),
     linear-gradient(120deg, rgba(242, 238, 233, 0.6), rgba(255, 255, 255, 0.4));
   min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid var(--garnet-accent);
+  outline-offset: 3px;
 }
 
 a {

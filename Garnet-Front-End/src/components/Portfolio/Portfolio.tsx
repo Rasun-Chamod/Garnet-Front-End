@@ -69,7 +69,7 @@ function Portfolio() {
   const [featured, ...rest] = filtered
 
   return (
-    <section className="border-t border-garnet-line px-6 py-20 md:px-12">
+    <section className="border-t border-garnet-line px-6 py-24 md:px-12 md:py-28">
       <motion.div
         variants={container}
         initial="hidden"
@@ -94,6 +94,8 @@ function Portfolio() {
           {categories.map((category) => (
             <button
               key={category}
+              type="button"
+              aria-pressed={activeCategory === category}
               onClick={() => setActiveCategory(category)}
               className={`rounded-full border px-5 py-2 text-xs uppercase tracking-[0.35em] transition ${
                 activeCategory === category
@@ -120,6 +122,7 @@ function Portfolio() {
                 <img
                   src={featured.image}
                   alt={featured.title}
+                  loading="lazy"
                   className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
@@ -148,7 +151,7 @@ function Portfolio() {
           ) : null}
         </AnimatePresence>
 
-        <motion.div variants={container} className="grid gap-6 md:grid-cols-2">
+        <motion.div variants={container} className="grid gap-6 md:grid-cols-2 lg:gap-8">
           {rest.map((project) => (
             <motion.div
               key={project.title}
@@ -158,6 +161,7 @@ function Portfolio() {
               <img
                 src={project.image}
                 alt={project.title}
+                loading="lazy"
                 className="h-80 w-full object-cover transition duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-black/45 opacity-0 transition duration-500 group-hover:opacity-100" />

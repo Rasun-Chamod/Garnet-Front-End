@@ -65,7 +65,7 @@ const fadeUp = {
 
 function Services() {
   return (
-    <section className="border-t border-garnet-line px-6 py-20 md:px-12">
+    <section className="border-t border-garnet-line px-6 py-24 md:px-12 md:py-28">
       <motion.div
         variants={container}
         initial="hidden"
@@ -77,7 +77,7 @@ function Services() {
           <p className="text-xs uppercase tracking-[0.35em] text-garnet-muted">
             Services
           </p>
-          <h2 className="font-display text-3xl font-semibold text-garnet-ink md:text-4xl">
+          <h2 className="font-display text-3xl font-semibold leading-[1.15] text-garnet-ink md:text-4xl">
             Premium capabilities for ambitious digital products.
           </h2>
           <p className="text-base leading-relaxed text-garnet-muted">
@@ -86,7 +86,7 @@ function Services() {
           </p>
         </motion.div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {services.map((service) => {
             const Icon = service.icon
             return (
@@ -97,7 +97,7 @@ function Services() {
                 className="group rounded-[24px] border border-garnet-line bg-white/70 p-8 shadow-garnet transition"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-full border border-garnet-line text-garnet-ink">
-                  <Icon className="text-xl" />
+                  <Icon className="text-xl" aria-hidden="true" />
                 </div>
                 <h3 className="mt-6 font-display text-xl text-garnet-ink">
                   {service.title}
